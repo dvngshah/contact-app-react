@@ -1,32 +1,23 @@
 import './App.css';
-import React from 'react';
+import React, {useState} from 'react';
 import Header from './Header';
 import AddContact from './AddContact';
 import ContactList from './ContactList';
 
 function App() {
 
-  const contacts = [
+  const [contacts, setContact] = useState([]);
 
-  {
-    id: 2,
-    name: 'Devang',
-    email: 'devang@gmail.com'
-
-  },
-
-  {
-    id: 2,
-    name: 'John',
-    email: 'john@gmail.com'
+  const addContactHandler = (contact) => {
+    setContact([...contacts, contact])
   }
 
-  ]
+
   return (
 
     <div className='ui container'>
       <Header />
-      <AddContact />
+      <AddContact addContactHandler = {addContactHandler} />
 
       {/* Passing props from parent to child */}
       <ContactList contacts = {contacts} />
