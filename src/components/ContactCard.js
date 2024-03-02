@@ -4,7 +4,7 @@ const ContactCard = (props) => {
 
 
 
-    const  {name, email}= props.contact;
+    const  {id, name, email}= props.contact;
 
     return(
 
@@ -16,7 +16,9 @@ const ContactCard = (props) => {
             </div>
 
         <i className='trash alternate outline icon'
-            style={{color: "red"}}/>
+            style={{color: "red"}}
+            
+            onClick={() => {props.clickHandler(id)}}/>
 
     </div>
     
