@@ -29,10 +29,13 @@ function App() {
   }
 
   useEffect(() => {
+
+
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
   }, [contacts]);
 
-  
+  //Check below or useState method
+
   useEffect(() => {
    const retrivedContacts =  JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
    if(retrivedContacts > 0){
@@ -43,10 +46,10 @@ function App() {
   return (
 
     <div className='ui container'>
-      <Header />
+    <Header />
       <AddContact addContactHandler = {addContactHandler} />
 
-      <ContactList contacts = {contacts} getContactId={removeContactHandler}/>
+      <ContactList contacts = {contacts} getContactId={removeContactHandler}/>  
   </div>
   );
 }
